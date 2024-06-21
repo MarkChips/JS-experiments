@@ -80,6 +80,23 @@ for (let i = int; i > 2; i--) {
 }
 const num1 = divisorObjectify(25);
 console.log(num1);
+/* {
+  '4': [ 2 ],
+  '6': [ 2, 3 ],
+  '8': [ 2, 4 ],
+  '9': [ 3 ],
+  '10': [ 2, 5 ],
+  '12': [ 2, 3, 4, 6 ],
+  '14': [ 2, 7 ],
+  '15': [ 3, 5 ],
+  '16': [ 2, 4, 8 ],
+  '18': [ 2, 3, 6, 9 ],
+  '20': [ 2, 4, 5, 10 ],
+  '21': [ 3, 7 ],
+  '22': [ 2, 11 ],
+  '24': [ 2, 3, 4, 6, 8, 12 ],
+  '25': [ 5 ]
+} */
 
 /** Creates a single object key of the integer and its divisors as key values. */
 function divisorObject(int) {
@@ -97,4 +114,4 @@ function divisorObject(int) {
     return obj;
 }
     const num2 = divisorObject(25);
-    console.log(num2);
+    console.log(num2); // { '24': [ 2, 3, 4, 6, 8, 12 ] }
