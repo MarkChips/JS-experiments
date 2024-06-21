@@ -10,31 +10,31 @@ function divisors(integer) {
       return `${integer} is prime`;
     }
     return divisors;
-  }
-  console.log(divisors(35)); // [ 5, 7 ]
+}
+console.log(divisors(35)); // [ 5, 7 ]
   
   /** Creates an array of divisors for all numbers up to and including argument int. 
    * Int is put in the array next to its divisor array. This is all contained within another array. */
-  function divisorMatrix(int) {
+function divisorMatrix(int) {
     let arrZ = [];
     for (let i = int; i > 2; i--) {
-      let arrY = [];
-      let arrX = [];
-      arrX.push(i);
-      for (let j = 2; j < i; j++) {
+        let arrY = [];
+        let arrX = [];
+        arrX.push(i);
+        for (let j = 2; j < i; j++) {
         if (i % j === 0) {
-          arrY.push(j);
+            arrY.push(j);
         }
-      }
-      if (arrY.length === 0) {
-        continue;
-      }
-      arrX.push(arrY);
-      arrZ.push(arrX);
+        }
+        if (arrY.length === 0) {
+            continue;
+        }
+        arrX.push(arrY);
+        arrZ.push(arrX);
     }
     return arrZ;
-  }
-  console.log(divisorMatrix(35));
+}
+console.log(divisorMatrix(35));
   /*  [
   [ 35, [ 5, 7 ] ],
   [ 34, [ 2, 17 ] ],
@@ -60,4 +60,41 @@ function divisors(integer) {
   [ 6, [ 2, 3 ] ],
   [ 4, [ 2 ] ]
 ] */
-  
+
+/** Creates an object of int as key and divisors as key values. Includes all non prime numbers up to and including int. */
+function divisorObjectify(int) {
+const obj = {};
+for (let i = int; i > 2; i--) {
+    let arrY = [];
+    for (let j = 2; j < i; j++) {
+        if (i % j === 0) {
+            arrY.push(j);
+        }
+    }
+    if (arrY.length === 0) {
+        continue;
+    }
+    obj[i] = arrY;
+    }
+    return obj;
+}
+const num1 = divisorObjectify(25);
+console.log(num1);
+
+/** Creates a single object key of the integer and its divisors as key values. */
+function divisorObject(int) {
+    const obj = {};
+    let arr = [];
+    for (let i = 2; i < int; i++) {
+        if (int % i === 0) {
+            arr.push(i);
+        }
+    }
+    if (arr.length === 0) {
+        arr.push('This is a prime number.');
+    }
+    obj[int] = arr;
+    return obj;
+}
+    const num2 = divisorObject(25);
+    console.log(num2);
